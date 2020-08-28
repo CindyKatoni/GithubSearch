@@ -1,6 +1,6 @@
 
     <form>
       <div class="form-group"><br>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Search Username:" [(ngModel)]="name" name="name">
+        <input type="text" class="form-control" id="name" placeholder="Search Username:" [(ngModel)]="name" (keyup)="searchName()" name="name">
       </div>
     </form>

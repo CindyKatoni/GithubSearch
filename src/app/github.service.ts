@@ -18,7 +18,16 @@ export class GithubService {
   getName() {
     const user = this._http.get(`https://api.github.com/users/${this.name}`)
     console.log(user);
+    return user;
   }
 
-  
+  getRepository() {
+    const repositories = this._http.get(`https://api.github.com/users/${this.name}/repos`)
+    console.log(repositories);
+    return repositories;
+  }
+
+  updateName(name: string) {
+    this.name = name;
+  }
 }
