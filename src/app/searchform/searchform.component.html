@@ -1,6 +1,12 @@
 
-    <form>
-      <div class="form-group"><br>
-        <input type="text" class="form-control" id="name" placeholder="Search Username:" [(ngModel)]="name" (keyup)="searchName()" name="name">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Enter Github Username:</span>
       </div>
-    </form>
+      <input type="text" class="form-control" id="name" placeholder="Search Username:" autocomplete="off" [(ngModel)]="name" (keyup)="searchName()" name="name" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+
+   
+
+    
+    

@@ -16,13 +16,13 @@ export class GithubService {
   }
 
   getName() {
-    const user = this._http.get(`https://api.github.com/users/${this.name}`)
+    const user = this._http.get(`https://api.github.com/users/${this.name}?access_token=${environment.github_api}`)
     console.log(user);
     return user;
   }
 
   getRepository() {
-    const repositories = this._http.get(`https://api.github.com/users/${this.name}/repos`)
+    const repositories = this._http.get(`https://api.github.com/users/${this.name}/repos?access_token=${environment.github_api}`)
     console.log(repositories);
     return repositories;
   }

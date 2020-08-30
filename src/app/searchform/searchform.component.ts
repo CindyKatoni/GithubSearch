@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { GithubService } from '../github.service';
   styleUrls: ['./searchform.component.css']
 })
 export class SearchformComponent implements OnInit {
-  name:any = [];
+  name:any = {};
   repositories:any = [];
 
   constructor(private _githubService: GithubService) {
