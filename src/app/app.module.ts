@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchformComponent } from './searchform/searchform.component';
-import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { GithubService } from './github.service';
+
 
 
 
@@ -15,7 +16,7 @@ import { JumbotronComponent } from './jumbotron/jumbotron.component';
   declarations: [
     AppComponent,
     SearchformComponent,
-    JumbotronComponent,   
+     
   ],
   imports: [
     BrowserModule,
@@ -25,7 +26,7 @@ import { JumbotronComponent } from './jumbotron/jumbotron.component';
     
    
   ],
-  providers: [],
+  providers: [GithubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

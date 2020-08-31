@@ -8,41 +8,83 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class GithubService {
-  username: User;
-  // name: string;
+ 
+  user: User;
+  repository: Repository;
+  
 
   constructor(private http:HttpClient) {
-    console.log('Ready to use github service...');
-    // this.name =  'CindyKatoni';
-    this.username = new User("");
+    this.user = new User('', '', '', '');
+    this.repository = new Repository('');
   }
-  userRequest(){
+
+  //Define Interface
+  getgithubUser(gitName: string){
     interface ApiResponse{
-      name:string;
+      login: string,
+      public_repos: string,
+      followers: string,
+      following: string,
     }
-    let promise = new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>(environment.github_api).toPromise().then(response=>{
-        this.username.name = response.name
-        
+     //HTTP Requests using observables and RxJS operators
+     let promise = new Promise((resolve, reject) => {
+      let github_api = 'https://api.github.com/users/' + gitName + '?access_token=' + environment.github_api;
+      this.http
+        .get<ApiResponse>(github_api)
+        .toPromise()
+        .then((res: any) => { 
+            //Successful request
+            this.user = res;
+            resolve();
+          },
+          err => {
+            //Request Not Successful
+            reject(err);
+          }
+        );
+    });
+    return promise;
+  }
 
-        resolve()
-      })
-    })
-    return promise
+ 
+
+ 
+
+
+
+
   }
 
 
 
-  }
 
-  // getName() {
-  //   const user = this.http.get(`https://api.github.com/users/${this.name}?access_token=${environment.github_api}`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // getName(){
+  //   const user = this._http.get(`https://api.github.com/users/${this.name}?access_token=${environment.github_api}`)
   //   console.log(user);
   //   return user;
   // }
 
   // getRepository() {
-  //   const repositories = this.http.get(`https://api.github.com/users/${this.name}/repos?access_token=${environment.github_api}`)
+  //   const repositories = this._http.get(`https://api.github.com/users/${this.name}/repos?access_token=${environment.github_api}`)
   //   console.log(repositories);
   //   return repositories;
   // }
@@ -50,4 +92,3 @@ export class GithubService {
   // updateName(name: string) {
   //   this.name = name;
   // }
-
