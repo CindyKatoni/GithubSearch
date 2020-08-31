@@ -3,10 +3,13 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-default">Enter Github Username:</span>
       </div>
-      <input type="text" class="form-control" id="name" placeholder="Search Username:" autocomplete="off" [(ngModel)]="name" (keyup)="searchName()" name="name" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+      <input type="text" class="form-control" placeholder="Search Username:" 
+      name="gitName" [(ngModel)]="gitName" aria-label="searchName" >
+      <button class="btn btn-info  btn-sm" name="submit" type="submit" (click) = "searchName()" >Search</button>
     </div>
 
    
 
     
     
+    <!-- <input type="text" class="form-control" id="name" placeholder="Search Username:" autocomplete="off" [(ngModel)]="name" (keyup)="searchName()" name="name" aria-label="Default" aria-describedby="inputGroup-sizing-default"> -->

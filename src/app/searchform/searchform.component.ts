@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GithubService } from '../github.service';
 import { User } from '../user';
+import { Repository } from '../repository';
 import * as moment from 'moment';
 
 
@@ -11,14 +12,52 @@ import * as moment from 'moment';
 })
 export class SearchformComponent implements OnInit {
 
-  username: User;
-  constructor(private userRequest:GithubService){
+  gitName: string;
+  user: User;
+  repository: Repository;
 
+  @Output() gitsearchEmitter = new EventEmitter<any>();
+
+
+  constructor(public userRequest: GithubService) {
+
+  }
+
+  getGithubUser(gitName: string) {
+    this.userRequest.getGithubUser(gitName).then(
+      success => {
+        console.log('Executing github search');
+        this.user = this.userRequest.user
+        console.log(this.user)
+      },
+      err => console.log(err)
+    )
+  }
+
+  getRepositories(gitName: string) {
+    this.userRequest.getRepository(gitName).then(
+      success => {
+        console.log('Executing repository search')
+        this.repository = this.userRequest.repository;
+        console.log(this.repository)
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
   ngOnInit(): void {
-    
+    this.getGithubUser("CindyKatoni");
+    this.getRepositories("CindyKatoni");
   }
+
+  searchName() {
+    this.gitsearchEmitter.emit(this.gitName);
+    this.gitName = '';
+  }
+
+
 
 
   // name:any = {};

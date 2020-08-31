@@ -18,8 +18,8 @@ export class GithubService {
     this.repository = new Repository('');
   }
 
-  //Define Interface
-  getgithubUser(gitName: string){
+  //Define User  Interface
+  getGithubUser(gitName: string){
     interface ApiResponse{
       login: string,
       public_repos: string,
@@ -34,6 +34,7 @@ export class GithubService {
         .toPromise()
         .then((res: any) => { 
             //Successful request
+            // console.log(res);GithubService
             this.user = res;
             resolve();
           },
@@ -46,7 +47,31 @@ export class GithubService {
     return promise;
   }
 
- 
+   //Define Repo Interface
+   getRepository(gitName: string){
+    interface ApiResponse{
+       repos_url: string,
+    }
+     //HTTP Requests using observables and RxJS operators
+     let promise = new Promise((resolve, reject) => {
+      let github_api = 'https://api.github.com/users/' + gitName + '/repos?access_token=' + environment.github_api
+      this.http
+        .get<ApiResponse>(github_api)
+        .toPromise()
+        .then((res: any) => { 
+            //Successful request
+            // console.log(res);
+            this.repository = res;
+            resolve();
+          },
+          err => {
+            //Request Not Successful
+            reject(err);
+          }
+        );
+    });
+    return promise;
+  }
 
  
 

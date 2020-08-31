@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import {GithubService} from './github.service';
-// import { SearchformComponent } from './searchform/searchform.component';
+import { HttpClient } from '@angular/common/http';
+import {GithubService} from './github.service';
+import { SearchformComponent } from './searchform/searchform.component';
 
 
 

@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchformComponent } from './searchform/searchform.component';
 import { GithubService } from './github.service';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -16,6 +17,7 @@ import { GithubService } from './github.service';
   declarations: [
     AppComponent,
     SearchformComponent,
+    ProfileComponent,
      
   ],
   imports: [
