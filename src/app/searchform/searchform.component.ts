@@ -1,9 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 import { GithubService } from '../github.service';
 import { User } from '../user';
 import { Repository } from '../repository';
 import * as moment from 'moment';
-
 
 @Component({
   selector: 'app-searchform',
@@ -13,15 +13,13 @@ import * as moment from 'moment';
 export class SearchformComponent implements OnInit {
 
   gitName: string;
+  repository: Repository
   user: User;
-  repository: Repository;
 
   @Output() gitsearchEmitter = new EventEmitter<any>();
 
 
-  constructor(public userRequest: GithubService) {
-
-  }
+  constructor(public userRequest: GithubService) { }
 
   getGithubUser(gitName: string) {
     this.userRequest.getGithubUser(gitName).then(

@@ -14,7 +14,7 @@ export class GithubService {
   
 
   constructor(private http:HttpClient) {
-    this.user = new User('', '', '', '');
+    this.user = new User('', '', '', '', '');
     this.repository = new Repository('');
   }
 
@@ -22,6 +22,7 @@ export class GithubService {
   getGithubUser(gitName: string){
     interface ApiResponse{
       login: string,
+      avatar_url: string,
       public_repos: string,
       followers: string,
       following: string,
