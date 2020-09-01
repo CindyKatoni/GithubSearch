@@ -4,6 +4,9 @@ export class User {
         public avatar_url:any,
         public public_repos:any, 
         public followers: any, 
-        public following: any ){
+        public following: any,
+        public company: any,
+        public location: any,
+        public email: any, ){
     }
 }

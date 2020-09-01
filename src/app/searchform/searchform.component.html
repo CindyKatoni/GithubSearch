@@ -1,36 +1,56 @@
 
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Enter Github Username:</span>
-      </div>
-      <input type="text" class="form-control" placeholder="Search Username:" 
-      name="gitName" [(ngModel)]="gitName" aria-label="searchName" >
-      <button class="btn btn-info  btn-sm" name="submit" type="submit" (click) = "searchName()" (gitsearchEmitter)="getGithubUser($event)">Search</button>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Enter Github Username:</span>
     </div>
-    <!-- <div class="container">
-      <h1>{{ user?.login }}</h1>
-    </div>
-     -->
-     <!-- Display my Profile -->
-     <div class="container-fluid" style="height: 50px;">
-      <div class="card">
-        <h5 class="card-header">Github Name:: {{ user.login }}</h5>
-        <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <img class="image" src="{{ user.avatar_url }}" alt="">
-          </div>
-          <div class="col-md-8 col-sm-8 col-xs-12">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+    <input type="text" class="form-control" placeholder="Search Username:" 
+    name="gitName" [(ngModel)]="gitName" aria-label="searchName" >
+    <button class="btn btn-info  btn-sm" name="submit" type="submit" (click) = "searchName()" (gitsearchEmitter)="getGithubUser($event)">Search</button>
+  </div>
+  <!-- <div class="container">
+    <h1>{{ user?.login }}</h1>
+  </div>
+   -->
+   <!-- Display my Profile -->
   
+    <div class="card">
+      <h5 class="card-header">Github Name:: {{ user.login }}</h5>
+      <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-12">
+          <img class="image" src="{{ user.avatar_url }}" alt="">
         </div>
-        
+        <div class="col-md-7 col-sm-7 col-xs-12">
+          <div class="userbadges">
+            <span class="badge badge-primary">Public Repos {{ user.public_repos}} </span>
+            <span class="badge badge-secondary">Followers {{ user.followers }} </span>
+            <span class="badge badge-success">Following {{ user.following }} </span>
+          </div>
+          <br/>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Company {{user.company}}</li>
+            <li class="list-group-item">Location {{user.location}}</li>
+            <li class="list-group-item">Email {{user.email}}</li>
+          </ul>
+        </div>
       </div>
-     </div>
+    </div>
+   
+    <!--Repository -->
+   
+    <div class="card-group">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align:center;">User Repositories</h5>
+          <div *ngFor="let repository of repositories">
+            <h4>
+              {{ repository.repos_url }}
+            </h4>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
      
 
    

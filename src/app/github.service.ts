@@ -14,7 +14,7 @@ export class GithubService {
   
 
   constructor(private http:HttpClient) {
-    this.user = new User('', '', '', '', '');
+    this.user = new User('', '', '', '', '', '', '', '');
     this.repository = new Repository('');
   }
 
@@ -26,6 +26,9 @@ export class GithubService {
       public_repos: string,
       followers: string,
       following: string,
+      company: string,
+      location: string,
+      email: string,
     }
      //HTTP Requests using observables and RxJS operators
      let promise = new Promise((resolve, reject) => {
@@ -73,12 +76,6 @@ export class GithubService {
     });
     return promise;
   }
-
- 
-
-
-
-
   }
 
 
