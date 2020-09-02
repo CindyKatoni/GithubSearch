@@ -24,9 +24,6 @@ export class ProfileComponent implements OnInit {
       },
       err => console.log(err)
     )
-  }
-
-  getRepositories(gitName: string) {
     this.userRequest.getRepository(gitName).then(
       success => {
         console.log('Executing repository search')
@@ -39,9 +36,11 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  // getRepositories(gitName: string) {
+
+  // }
+
   ngOnInit(): void {
-    this.getGithubUser("CindyKatoni");
-    this.getRepositories("CindyKatoni");
   }
 
 }

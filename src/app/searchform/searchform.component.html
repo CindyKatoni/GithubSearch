@@ -14,7 +14,7 @@
    <!-- Display my Profile -->
   
     <div class="card">
-      <h5 class="card-header">Github Name:: {{ user.login }}</h5>
+      <h5 class="card-header">Github Name: {{ user.login }}</h5>
       <div class="row">
         <div class="col-md-5 col-sm-5 col-xs-12">
           <img class="image" src="{{ user.avatar_url }}" alt="">
@@ -41,9 +41,9 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title" style="text-align:center;">User Repositories</h5>
-          <div *ngFor="let repository of repositories">
+          <div *ngFor="let repos of repository ">
             <h4>
-              {{ repository.repos_url }}
+              {{ repos.name }}
             </h4>
           </div>
 

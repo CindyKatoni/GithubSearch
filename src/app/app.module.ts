@@ -8,9 +8,7 @@ import { AppComponent } from './app.component';
 import { SearchformComponent } from './searchform/searchform.component';
 import { GithubService } from './github.service';
 import { ProfileComponent } from './profile/profile.component';
-
-
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -18,14 +16,14 @@ import { ProfileComponent } from './profile/profile.component';
     AppComponent,
     SearchformComponent,
     ProfileComponent,
-     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    
+    FontAwesomeModule
    
   ],
   providers: [GithubService],

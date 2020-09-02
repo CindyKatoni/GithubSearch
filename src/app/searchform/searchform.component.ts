@@ -30,9 +30,6 @@ export class SearchformComponent implements OnInit {
       },
       err => console.log(err)
     )
-  }
-
-  getRepositories(gitName: string) {
     this.userRequest.getRepository(gitName).then(
       success => {
         console.log('Executing repository search')
@@ -45,9 +42,21 @@ export class SearchformComponent implements OnInit {
     )
   }
 
+  // getRepositories(gitName: string) {
+  //   this.userRequest.getRepository(gitName).then(
+  //     success => {
+  //       console.log('Executing repository search')
+  //       this.repository = this.userRequest.repository;
+  //       console.log(this.repository)
+  //     },
+  //     err => {
+  //       console.log(err);
+  //     }
+  //   )
+  // }
+
   ngOnInit(): void {
     this.getGithubUser("CindyKatoni");
-    this.getRepositories("CindyKatoni");
   }
 
   searchName() {

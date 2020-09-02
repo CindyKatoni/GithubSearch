@@ -32,12 +32,11 @@ export class GithubService {
     }
      //HTTP Requests using observables and RxJS operators
      let promise = new Promise((resolve, reject) => {
-      let github_api = 'https://api.github.com/users/' + gitName + '?access_token=' + environment.github_api;
+      let github_api = `https://api.github.com/users/${gitName}?access_token${environment.github_api}`
       this.http
         .get<ApiResponse>(github_api)
         .toPromise()
-        .then((res: any) => { 
-            //Successful request
+        .then((res: any) => {
             // console.log(res);GithubService
             this.user = res;
             resolve();
@@ -56,26 +55,24 @@ export class GithubService {
     interface ApiResponse{
        repos_url: string,
     }
-     //HTTP Requests using observables and RxJS operators
      let promise = new Promise((resolve, reject) => {
-      let github_api = 'https://api.github.com/users/' + gitName + '/repos?access_token=' + environment.github_api
+      let github_api = `https://api.github.com/users/${gitName}/repos?access_token=${environment.github_api}`
       this.http
         .get<ApiResponse>(github_api)
         .toPromise()
         .then((res: any) => { 
-            //Successful request
             // console.log(res);
             this.repository = res;
             resolve();
           },
           err => {
-            //Request Not Successful
             reject(err);
           }
         );
     });
     return promise;
   }
+
   }
 
 
